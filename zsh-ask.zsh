@@ -1,5 +1,6 @@
 # A lightweight Zsh plugin serves as a ChatGPT API frontend, enabling you to interact with ChatGPT directly from the Zsh.
-# https://github.com/Michaelwmx/zsh-ask
+# Forked from https://github.com/Michaelwmx/zsh-ask
+# Repo at https://github.com/wlfmnstr/zsh-ask
 # Copyright (c) 2023 Leachim
 
 #--------------------------------------------------------------------#
@@ -12,7 +13,7 @@ typeset -g ZSH_ASK_VERSION=$(<"$ZSH_ASK_PATH"/VERSION)
 
 
 (( ! ${+ZSH_ASK_REPO} )) &&
-typeset -g ZSH_ASK_REPO="Michaelwmx/zsh-ask"
+typeset -g ZSH_ASK_REPO="wlfmnstr/zsh-ask"
 
 # Get the corresponding endpoint for your desired model.
 (( ! ${+ZSH_ASK_API_URL} )) &&
@@ -20,25 +21,25 @@ typeset -g ZSH_ASK_API_URL="https://api.openai.com/v1/chat/completions"
 
 # Fill up your OpenAI api key here.
 (( ! ${+ZSH_ASK_API_KEY} )) &&
-typeset -g ZSH_ASK_API_KEY="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+typeset -g ZSH_ASK_API_KEY="sk-xxxxxxxxxxxxxxxxxxxxx"
 
 # Default configurations
 (( ! ${+ZSH_ASK_CONVERSATION} )) &&
-typeset -g ZSH_ASK_CONVERSATION=false
+typeset -g ZSH_ASK_CONVERSATION=true
 (( ! ${+ZSH_ASK_INHERITS} )) &&
-typeset -g ZSH_ASK_INHERITS=false
+typeset -g ZSH_ASK_INHERITS=true
 (( ! ${+ZSH_ASK_MARKDOWN} )) &&
-typeset -g ZSH_ASK_MARKDOWN=false
+typeset -g ZSH_ASK_MARKDOWN=true
 (( ! ${+ZSH_ASK_STREAM} )) &&
-typeset -g ZSH_ASK_STREAM=false
+typeset -g ZSH_ASK_STREAM=true
 (( ! ${+ZSH_ASK_TOKENS} )) &&
-typeset -g ZSH_ASK_TOKENS=800
+typeset -g ZSH_ASK_TOKENS=1000
 (( ! ${+ZSH_ASK_HISTORY} )) &&
 typeset -g ZSH_ASK_HISTORY=""
 (( ! ${+ZSH_ASK_INITIALROLE} )) &&
 typeset -g ZSH_ASK_INITIALROLE="system"
 (( ! ${+ZSH_ASK_INITIALROLE} )) &&
-typeset -g ZSH_ASK_INITIALPROMPT="You are a large language model trained by OpenAI. Answer as concisely as possible.\nKnowledge cutoff: {knowledge_cutoff} Current date: {current_date}"
+typeset -g ZSH_ASK_INITIALPROMPT="You are a large language model trained by OpenAI and built into a zsh terminal on a macbook. Answer as concisely as possible.. \nKnowledge cutoff: {knowledge_cutoff} Current date: {current_date}"
 
 function _zsh_ask_show_help() {
   echo "A lightweight Zsh plugin serves as a ChatGPT API frontend, enabling you to interact with ChatGPT directly from the Zsh."
